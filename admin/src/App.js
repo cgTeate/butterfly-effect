@@ -48,7 +48,7 @@ function App() {
                 <MovieList />
               </Route>
               <Route path="/movie/:movieId">
-                <Movie />
+                 <Movie />
               </Route>
               <Route path="/newMovie">
                 <NewMovie />

@@ -35,25 +35,33 @@ router.delete("/:id", verify, async (req, res) => {
 
 //GET
 
+//accept type or genre
 router.get("/", verify, async (req, res) => {
   const typeQuery = req.query.type;
   const genreQuery = req.query.genre;
   let list = [];
+  
   try {
+
     if (typeQuery) {
+      //if choose genre from the dropdown box
       if (genreQuery) {
+         //localhost:8800/api/lists?type=series&genre=comedy
         list = await List.aggregate([
-          { $sample: { size: 10 } },
+          { $sample: { size: 30 } },
           { $match: { type: typeQuery, genre: genreQuery } },
         ]);
       } else {
+        //if there is no genre chosen
+        //localhost:8800/api/lists?type=series  
         list = await List.aggregate([
-          { $sample: { size: 10 } },
+          { $sample: { size: 30 } },
           { $match: { type: typeQuery } },
         ]);
       }
     } else {
-      list = await List.aggregate([{ $sample: { size: 10 } }]);
+      //if it is in homepage, get random movie, aggregate produce reduced and summarized results
+      list = await List.aggregate([{ $sample: { size: 30 } }]);
     }
     res.status(200).json(list);
   } catch (err) {

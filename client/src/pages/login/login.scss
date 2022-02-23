@@ -6,7 +6,7 @@
       rgba(0, 0, 0, 0) 0%,
       rgba(0, 0, 0, 1) 100%
     ),
-    url("http://mppmduse2pmpovwapp.azurewebsites.net/wp-content/uploads/2019/09/netflix-background-9.jpg");
+    url("https://wallpapercave.com/wp/wp3612010.jpg");
   background-size: cover;
   position: relative;
 
@@ -34,6 +34,9 @@
     align-items: center;
     justify-content: center;
     color: white;
+
+    
+  
 
     form {
       width: 300px;
@@ -68,11 +71,20 @@
         cursor: pointer;
       }
 
+
       span {
         color: lightgray;
-        b {
+        .cc {
           color: white;
+          cursor: pointer;
+          text-decoration: none;
         }
+        .bb {
+          color: red;
+          cursor: pointer;
+          text-decoration: none;
+        }
+       
       }
     }
   }
